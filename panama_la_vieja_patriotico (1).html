@@ -1,0 +1,179 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Panamá la Vieja — Orgullo Patrio</title>
+<style>
+  :root{
+    --rojo:#d1222a;
+    --azul:#0b4aa1;
+    --azul-osc:#07346f;
+    --blanco:#ffffff;
+    --gris:#2b2b2b;
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0;padding:0;background:linear-gradient(180deg, #ffffff 0%, #f6f8ff 100%);color:#111;font-family:system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial}
+  a{color:var(--azul)}
+  header.hero{
+    position:relative;
+    padding:64px 18px 40px;
+    text-align:center;
+    overflow:hidden;
+    background:
+      radial-gradient(1200px 240px at 50% -20%, rgba(11,74,161,.14), transparent 60%),
+      linear-gradient(120deg, var(--blanco) 0 50%, rgba(209,34,42,.05) 50% 100%);
+    border-bottom:8px solid var(--azul);
+  }
+  .bandera{
+    display:flex; gap:0; width:min(880px, 92vw); margin:0 auto 18px; height:14px; border:1px solid #e2e2e2
+  }
+  .bandera div{flex:1}
+  .bandera .rojo{background:var(--rojo)}
+  .bandera .blanco{background:var(--blanco)}
+  .bandera .azul{background:var(--azul)}
+  header.hero h1{margin:6px 0 8px; font-size: clamp(28px, 6vw, 44px); letter-spacing:.4px}
+  header.hero p{max-width:900px; margin:0 auto; font-size: clamp(15px, 2.7vw, 18px); color:#333}
+  .estrella{
+    position:absolute; opacity:.08; font-size: 120px; top:-10px; left:6vw; color:var(--azul-osc)
+  }
+  .estrella2{ left:auto; right:6vw; color:var(--rojo) }
+  .wrap{max-width: 1100px; margin: 28px auto; padding: 0 18px}
+  h2{font-size: clamp(20px, 4.6vw, 28px); margin: 26px 0 10px}
+  h3{margin: 16px 0 8px}
+  .grid{
+    display:grid; gap: 18px;
+    grid-template-columns: repeat(12, 1fr);
+  }
+  .card{
+    grid-column: span 12;
+    background:#fff; border:1px solid #e6e6e6; border-radius:12px; padding:18px;
+    box-shadow: 0 8px 18px rgba(0,0,0,.04);
+  }
+  .accent{
+    border-top: 6px solid var(--azul);
+  }
+  .accent.rojo{ border-top-color: var(--rojo) }
+  @media (min-width: 880px){
+    .col-6{ grid-column: span 6 }
+    .col-4{ grid-column: span 4 }
+    .col-8{ grid-column: span 8 }
+  }
+  .timeline{ list-style:none; padding:0; margin:0 }
+  .timeline li{ padding:10px 0; border-left:4px solid var(--azul); padding-left:12px; margin-left:8px }
+  .timeline li:nth-child(odd){ border-left-color: var(--rojo) }
+  .pill{
+    display:inline-block; padding:6px 10px; border-radius:999px;
+    background:linear-gradient(90deg, var(--azul), var(--azul-osc)); color:#fff; font-weight:600; font-size:12px; letter-spacing:.3px
+  }
+  .cta{
+    margin: 24px 0 0;
+    display:flex; flex-wrap:wrap; gap:12px;
+  }
+  .btn{
+    padding:10px 14px; border-radius:10px; border:2px solid var(--azul); color:var(--azul); background:#fff; text-decoration:none; font-weight:700
+  }
+  .btn.rojo{ border-color:var(--rojo); color:var(--rojo) }
+  .gallery{
+    display:grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap:12px;
+  }
+  .photo{
+    aspect-ratio: 4/3; border-radius:10px; border:1px solid #e6e6e6; background:
+      linear-gradient(145deg, rgba(11,74,161,.1), rgba(209,34,42,.08)),
+      repeating-linear-gradient(45deg, #ffffff, #ffffff 8px, #f5f7ff 8px, #f5f7ff 16px);
+    display:flex; align-items:center; justify-content:center; color:#335; font-weight:600
+  }
+  .info{
+    font-size:14px; color:#333
+  }
+  footer{
+    margin-top:36px; padding:22px 18px; background:#001534; color:#fff; text-align:center
+  }
+  footer .mini{ color:#cfe0ff; font-size:12px }
+</style>
+</head>
+<body>
+  <header class="hero">
+    <div class="bandera" aria-hidden="true">
+      <div class="azul"></div><div class="blanco"></div><div class="rojo"></div>
+    </div>
+    <div class="estrella">★</div>
+    <div class="estrella estrella2">★</div>
+    <h1>Panamá la Vieja</h1>
+    <p>Primer asentamiento europeo en la costa pacífica de América (fundado en 1519) y punto de partida del Camino Real hacia Portobelo. Un sitio arqueológico que preserva las raíces coloniales de la Ciudad de Panamá y simboliza la resiliencia del país.</p>
+    <div class="cta">
+      <span class="pill">Patrimonio Histórico</span>
+      <span class="pill" style="background:linear-gradient(90deg, var(--rojo), #f14b55)">Orgullo Panameño</span>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <section class="grid">
+      <article class="card accent col-8">
+        <h2>Un poco de historia</h2>
+        <p class="info">
+          Fundada por <strong>Pedrarias Dávila</strong> en 1519, Panamá la Vieja creció como ciudad portuaria clave del imperio español.
+          Desde aquí partían tesoros sudamericanos hacia el Caribe por el Camino de Cruces. En 1671, el ataque del pirata
+          <strong>Henry Morgan</strong> provocó la destrucción y el traslado de la ciudad a su ubicación actual, hoy conocida como
+          <em>Casco Antiguo</em>.
+        </p>
+        <ul class="timeline">
+          <li><strong>1519:</strong> Fundación de la ciudad.</li>
+          <li><strong>1600–1650:</strong> Auge comercial con ferias y tránsito interoceánico.</li>
+          <li><strong>1671:</strong> Saqueo e incendio durante el ataque de Morgan.</li>
+          <li><strong>Siglo XX–XXI:</strong> Rescate arqueológico y apertura al público como parque histórico.</li>
+        </ul>
+      </article>
+
+      <aside class="card accent rojo col-4">
+        <h2>Datos rápidos</h2>
+        <ul class="info">
+          <li>Ubicación: Este de la Ciudad de Panamá.</li>
+          <li>Icono: <em>Torre de la Catedral</em>.</li>
+          <li>Declaratoria: Conjunto Monumental Histórico.</li>
+          <li>Ideal para: Historia, fotografía y vistas de la moderna Cinta Costera.</li>
+        </ul>
+      </aside>
+
+      <article class="card col-12">
+        <h2>Qué ver</h2>
+        <div class="gallery">
+          <div class="photo">Torre de la Catedral</div>
+          <div class="photo">Plaza Mayor</div>
+          <div class="photo">Convento de la Concepción</div>
+          <div class="photo">Museo de Sitio</div>
+        </div>
+        <p class="info" style="margin-top:10px">
+          Las ruinas y pasarelas interpretativas cuentan la historia de la ciudad original. Los miradores regalan
+          panorámicas del Pacífico y del skyline actual: pasado y presente en un solo cuadro.
+        </p>
+      </article>
+
+      <article class="card col-6">
+        <h2>Consejos para la visita</h2>
+        <ul class="info">
+          <li>Ve temprano o al atardecer para evitar el calor fuerte.</li>
+          <li>Lleva agua, gorra y calzado cómodo.</li>
+          <li>Compra el boleto combinado con el Museo de Sitio.</li>
+          <li>Respeta las áreas protegidas y no subas a muros inestables.</li>
+        </ul>
+      </article>
+
+      <article class="card col-6">
+        <h2>Colores patrios presentes</h2>
+        <p class="info">
+          La paleta del sitio usa <strong>azul, blanco y rojo</strong> en bandas y acentos, inspirada en la bandera panameña.
+          Las <em>estrellas</em> simbolizan los ideales de ley y autoridad, y la pureza de nuestras aspiraciones cívicas.
+        </p>
+        <div class="bandera" aria-hidden="true" style="margin-top:10px; height:20px"></div>
+      </article>
+    </section>
+  </main>
+
+  <footer>
+    <div>Hecho con orgullo panameño — Azul • Blanco • Rojo</div>
+    <div class="mini">Esta página es informativa y no oficial.</div>
+  </footer>
+</body>
+</html>

@@ -1,0 +1,197 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Boletín de Calificaciones - II Trimestre</title>
+<style>
+  :root{
+    --border:#444;
+    --muted:#666;
+  }
+  *{box-sizing:border-box}
+  body{
+    font-family: system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, "Noto Sans", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+    margin:0;
+    background:#f7f7f7;
+    color:#111;
+  }
+  .page{
+    width: 210mm; /* A4 */
+    min-height: 297mm;
+    margin: 12mm auto;
+    background:#fff;
+    padding: 16mm 18mm;
+    box-shadow: 0 10px 25px rgba(0,0,0,.08);
+  }
+  header{
+    text-align:center;
+    line-height:1.2;
+    margin-bottom: 10mm;
+  }
+  header .small{ color: var(--muted); font-size: 12px; letter-spacing:.3px; }
+  header h1{ font-size: 18px; margin:.2rem 0 .4rem; text-transform:uppercase; }
+  header h2{ font-size: 15px; margin:0; text-transform:uppercase; }
+  .grid{
+    display:grid;
+    grid-template-columns: 1.7fr 1fr 1fr;
+    gap:10px 14px;
+    font-size: 13px;
+    margin-bottom: 10mm;
+  }
+  .grid .label{ color:var(--muted); font-weight:600; }
+  .grid div{ border-bottom: 1px dashed #bbb; padding:6px 0 }
+  .grid div span{ font-weight:600; color:#111 }
+  table{
+    width:100%;
+    border-collapse: collapse;
+    font-size: 13px;
+    margin-bottom: 8mm;
+  }
+  thead th{
+    text-transform:uppercase;
+    font-size:12px;
+    letter-spacing:.2px;
+    background:#f1f1f1;
+  }
+  th, td{ border:1px solid var(--border); padding:7px 8px; vertical-align:middle; }
+  tbody td.num{ text-align:center; width:46px; }
+  tfoot td{ font-weight:700; background:#fafafa }
+  .wrap{
+    display:grid;
+    grid-template-columns: 1.65fr .95fr;
+    gap: 12mm;
+    align-items:start;
+  }
+  .box{
+    border:1px solid var(--border);
+    padding:8px 10px;
+  }
+  .box h3{
+    margin:0 0 8px;
+    font-size:13px;
+    text-transform:uppercase;
+    letter-spacing:.2px;
+  }
+  .obs{
+    min-height:70mm;
+  }
+  .stamp{
+    margin-top:14mm;
+    width:120px;height:120px;border:2px solid #2c63c7;border-radius:50%;
+    display:flex;align-items:center;justify-content:center;
+    opacity:.65;font-weight:700;text-align:center;line-height:1;
+  }
+  .legend{
+    font-size: 12px; color:var(--muted);
+    display:flex; gap:24px; margin-top:6px;
+  }
+  @media print{
+    body{ background:#fff; }
+    .page{ margin:0; box-shadow:none; }
+  }
+</style>
+</head>
+<body>
+  <section class="page">
+    <header>
+      <div class="small">REPÚBLICA DE PANAMÁ · MINISTERIO DE EDUCACIÓN</div>
+      <h1>I.P.T. DON BOSCO</h1>
+      <h2>BOLETÍN DE CALIFICACIONES</h2>
+      <div class="small">II TRIMESTRE</div>
+    </header>
+
+    <section class="grid">
+      <div><span class="label">Nombre:&nbsp;</span><span>RIVERA CARR, ERICK ADRIAN</span></div>
+      <div><span class="label">Año lectivo:&nbsp;</span><span>2024</span></div>
+      <div><span class="label">Fecha:&nbsp;</span><span>05-08-2024</span></div>
+
+      <div><span class="label">Cédula:&nbsp;</span><span>8-1059-525</span></div>
+      <div><span class="label">Pasaporte:&nbsp;</span><span>&nbsp;</span></div>
+      <div><span class="label">Grupo:&nbsp;</span><span>11-A</span></div>
+
+      <div style="grid-column:1 / span 2"><span class="label">Plan:&nbsp;</span><span>BACHILLERATO EN TECNOLOGÍA INFORMÁTICA</span></div>
+      <div><span class="label">Consejero:&nbsp;</span><span>GISELA GONZÁLEZ</span></div>
+    </section>
+
+    <table>
+      <thead>
+        <tr>
+          <th rowspan="2">ASIGNATURAS</th>
+          <th colspan="3">TRIMESTRES</th>
+          <th rowspan="2">NOTA<br>FINAL</th>
+          <th colspan="6">ASISTENCIA</th>
+        </tr>
+        <tr>
+          <th>I</th><th>II</th><th>III</th>
+          <th>I Aus</th><th>I Tar</th>
+          <th>II Aus</th><th>II Tar</th>
+          <th>III Aus</th><th>III Tar</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>ESPAÑOL</td><td class="num">3.5</td><td class="num">3.5</td><td class="num"></td><td class="num">3.5</td><td class="num">3</td><td class="num">0</td><td class="num">0</td><td class="num">0</td><td class="num">0</td><td class="num">0</td></tr>
+        <tr><td>INGLÉS</td><td class="num">3.4</td><td class="num">3.4</td><td class="num"></td><td class="num">3.4</td><td class="num">6</td><td class="num">0</td><td class="num">0</td><td class="num">0</td><td class="num">0</td><td class="num">0</td></tr>
+        <tr><td>HISTORIA DE PANAMÁ</td><td class="num">3.3</td><td class="num">3.3</td><td class="num"></td><td class="num">3.3</td><td class="num">4</td><td class="num">0</td><td class="num">0</td><td class="num">0</td><td class="num">0</td><td class="num">0</td></tr>
+        <tr><td>MATEMÁTICA</td><td class="num">3.7</td><td class="num">3.7</td><td class="num"></td><td class="num">3.7</td><td class="num">0</td><td class="num">0</td><td class="num">0</td><td class="num">0</td><td class="num">0</td><td class="num">0</td></tr>
+        <tr><td>EDUCACIÓN FÍSICA Y SALUD INTEGRAL</td><td class="num">4.8</td><td class="num">4.8</td><td class="num"></td><td class="num">4.8</td><td class="num">0</td><td class="num">0</td><td class="num">0</td><td class="num">0</td><td class="num">0</td><td class="num">0</td></tr>
+        <tr><td>QUÍMICA</td><td class="num">3.1</td><td class="num">3.1</td><td class="num"></td><td class="num">3.1</td><td class="num">0</td><td class="num">0</td><td class="num">0</td><td class="num">0</td><td class="num">0</td><td class="num">0</td></tr>
+        <tr><td>FÍSICA</td><td class="num">3.5</td><td class="num">3.5</td><td class="num"></td><td class="num">3.5</td><td class="num">1</td><td class="num">0</td><td class="num">0</td><td class="num">0</td><td class="num">0</td><td class="num">0</td></tr>
+        <tr><td>ARQUITECTURA DE COMPUTADORAS</td><td class="num">4.1</td><td class="num">4.1</td><td class="num"></td><td class="num">4.1</td><td class="num">2</td><td class="num">0</td><td class="num">0</td><td class="num">0</td><td class="num">0</td><td class="num">0</td></tr>
+        <tr><td>PROGRAMACIÓN</td><td class="num">3.5</td><td class="num">3.5</td><td class="num"></td><td class="num">3.5</td><td class="num">0</td><td class="num">0</td><td class="num">0</td><td class="num">0</td><td class="num">0</td><td class="num">0</td></tr>
+        <tr><td>MULTIMEDIA Y DESARROLLO WEB</td><td class="num">4.4</td><td class="num">4.4</td><td class="num"></td><td class="num">4.4</td><td class="num">0</td><td class="num">0</td><td class="num">0</td><td class="num">0</td><td class="num">0</td><td class="num">0</td></tr>
+        <tr><td>REDES DE COMPUTADORAS</td><td class="num">3.0</td><td class="num">3.0</td><td class="num"></td><td class="num">3.0</td><td class="num">3</td><td class="num">0</td><td class="num">0</td><td class="num">0</td><td class="num">0</td><td class="num">0</td></tr>
+      </tbody>
+      <tfoot>
+        <tr><td>PROMEDIO</td><td class="num"></td><td class="num"></td><td class="num"></td><td class="num">3.6</td>
+          <td class="num" colspan="6">Total ausencias: 25 &nbsp;·&nbsp; Tardanzas: 0</td></tr>
+      </tfoot>
+    </table>
+
+    <div class="wrap">
+      <section class="box">
+        <h3>HÁBITOS Y ACTITUDES — TRIMESTRES</h3>
+        <table>
+          <thead>
+            <tr><th>Indicador</th><th>I</th><th>II</th><th>III</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Responsabilidad</td><td class="num">S</td><td class="num">S</td><td class="num"></td></tr>
+            <tr><td>Puntualidad</td><td class="num">S</td><td class="num">S</td><td class="num"></td></tr>
+            <tr><td>Honradez</td><td class="num">S</td><td class="num">S</td><td class="num"></td></tr>
+            <tr><td>Conciencia cívica</td><td class="num">S</td><td class="num">S</td><td class="num"></td></tr>
+            <tr><td>Organización del trabajo</td><td class="num">S</td><td class="num">S</td><td class="num"></td></tr>
+            <tr><td>Auto. y conf. en sí mismo</td><td class="num">S</td><td class="num">S</td><td class="num"></td></tr>
+            <tr><td>Iniciativa</td><td class="num">S</td><td class="num">S</td><td class="num"></td></tr>
+            <tr><td>Cooperación</td><td class="num">S</td><td class="num">S</td><td class="num"></td></tr>
+            <tr><td>Respeto a la propiedad ajena</td><td class="num">S</td><td class="num">S</td><td class="num"></td></tr>
+            <tr><td>Modales</td><td class="num">S</td><td class="num">S</td><td class="num"></td></tr>
+            <tr><td>Orden y aseo</td><td class="num">S</td><td class="num">S</td><td class="num"></td></tr>
+            <tr><td>Empleo del tiempo libre</td><td class="num">S</td><td class="num">S</td><td class="num"></td></tr>
+          </tbody>
+        </table>
+        <div class="legend">S = Satisfactorio · R = Regular · 2 = Apenas regular · 1 = Mala · 4 = Bueno · 3 = Regular · 5 = Excelente</div>
+      </section>
+
+      <section class="box obs">
+        <h3>Observaciones</h3>
+        <div style="min-height:56mm"></div>
+        <div class="stamp">MINISTERIO<br>DE EDUCACIÓN<br>IPT DON BOSCO</div>
+      </section>
+    </div>
+
+    <div style="margin-top:14mm; display:flex; gap:18mm;">
+      <div style="flex:1">
+        <div style="border-top:1px solid var(--border); padding-top:6px; text-align:center; font-size:12px;">Firma del Estudiante</div>
+      </div>
+      <div style="flex:1">
+        <div style="border-top:1px solid var(--border); padding-top:6px; text-align:center; font-size:12px;">Firma del Acudiente</div>
+      </div>
+      <div style="flex:1">
+        <div style="border-top:1px solid var(--border); padding-top:6px; text-align:center; font-size:12px;">Firma del Docente Guía</div>
+      </div>
+    </div>
+  </section>
+</body>
+</html>

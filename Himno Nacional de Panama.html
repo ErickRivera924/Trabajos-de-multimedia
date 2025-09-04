@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Himno Nacional de Panamá</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f0f0f5;
+      color: #1f497d;
+      max-width: 800px;
+      margin: 40px auto;
+      padding: 20px;
+      text-align: center;
+    }
+    img {
+      max-width: 200px;
+      margin-bottom: 20px;
+    }
+    h1 {
+      font-size: 2.5rem;
+      margin-bottom: 20px;
+    }
+    h2 {
+      color: #3b5998;
+      margin-top: 40px;
+      margin-bottom: 20px;
+    }
+    .estrofa {
+      background-color: #ffffff;
+      border-left: 5px solid #1f497d;
+      padding: 15px;
+      margin: 20px 0;
+      border-radius: 5px;
+    
+      text-align: left;
+      margin-bottom: 25px;
+      white-space: pre-line;
+      font-size: 1.1rem;
+    }
+    .coro {
+      font-weight: bold;
+      text-align: center;
+      margin-bottom: 30px;
+      font-size: 1.2rem;
+      color: #d6336c;
+    }
+    audio {
+      margin: 20px 0 40px 0;
+      width: 100%;
+      outline: none;
+    }
+    button {
+      padding: 10px 20px;
+      font-size: 1rem;
+      background-color: #1f497d;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      margin-bottom: 40px;
+    }
+  </style>
+</head>
+<body>
+  <img src="https://upload.wikimedia.org/wikipedia/commons/a/a3/Flag_of_Panama.svg" alt="Bandera de Panamá" />
+  <h1>Himno Nacional de Panamá</h1>
+
+  <button onclick="descargarHTML()">Descargar esta página como HTML</button>
+
+  <audio controls>
+    <source src="https://upload.wikimedia.org/wikipedia/commons/9/9b/Himno_Nacional_de_Panam%C3%A1.ogg" type="audio/ogg" />
+    Tu navegador no soporta audio HTML5.
+  </audio>
+
+  <h2>Letra Completa</h2>
+
+  <div class="estrofa">
+Alcanzamos por fin la victoria<br>
+en el campo feliz de la unión;<br>
+con ardientes fulgores de gloria<br>
+se ilumina la nueva nación.
+  </div>
+
+  <div class="estrofa">(Verso I)</div>
+
+  <div class="estrofa">
+Es preciso cubrir con un velo<br>
+del pasado el calvario y la cruz;<br>
+y que adorne el azul de tu cielo<br>
+de concordia la espléndida luz.
+  </div>
+
+  <div class="estrofa">(Verso II)</div>
+
+  <div class="estrofa">
+El progreso acaricia tus lares<br>
+al compás de sublime canción;<br>
+ves rugir a tus pies ambos mares<br>
+que dan rumbo a tu noble misión.
+  </div>
+
+  <div class="coro">(Repite el coro)</div>
+
+  <div class="estrofa">(Verso III)</div>
+
+  <div class="estrofa">
+En tu suelo cubierto de flores,<br>
+a los besos del tibio terral,<br>
+terminaron guerreros fragores;<br>
+solo reina el amor fraternal.
+  </div>
+
+  <div class="estrofa">(Verso IV)</div>
+
+  <div class="estrofa">
+Adelante la pica y la pala,<br>
+al trabajo sin más dilación;<br>
+y seremos así prez y gala,<br>
+de este mundo feraz de Colón.
+  </div>
+
+  <div class="coro">
+¡Alcanzamos por fin la victoria<br>
+en el campo feliz de la unión!<br>
+Con empeño sublime, con ánimo fuerte,<br>
+todo hombre se siente de orgullo henchido,<br>
+y en su pecho se ostenta la gloria<br>
+de la patria que ofrece el honor.
+  </div>
+
+  <script>
+    function descargarHTML() {
+      const contenido = document.documentElement.outerHTML;
+      const blob = new Blob([contenido], { type: 'text/html' });
+      const url = URL.createObjectURL(blob);
+      const enlace = document.createElement('a');
+      enlace.href = url;
+      enlace.download = 'Himno_Nacional_de_Panama.html';
+      enlace.click();
+      URL.revokeObjectURL(url);
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,253 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Catálogo de Consolas — Interactivo</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#0f1320; --panel:#12182a; --card:#121a2a;
+    --border:#1f2a3f; --ink:#e9f0ff; --muted:#a7b3c9;
+    --primary:#3db0ff; --accent:#66e5a9; --warn:#ffb020;
+    --shadow: 0 18px 40px rgba(0,0,0,.45);
+  }
+  *{ box-sizing:border-box }
+  body{
+    margin:0; color:var(--ink); background: radial-gradient(900px 600px at 8% -10%, rgba(61,176,255,.12), transparent 60%), linear-gradient(180deg, var(--bg) 0%, #0a0d13 100%);
+    font-family:"Inter", system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial;
+  }
+  header{
+    position:sticky; top:0; z-index:10; backdrop-filter: blur(8px);
+    background: linear-gradient(180deg, rgba(15,19,32,.92), rgba(15,19,32,.7));
+    border-bottom:1px solid var(--border);
+  }
+  .wrap{ max-width:1200px; margin:0 auto; padding:16px 18px }
+  .brand{ display:flex; align-items:center; justify-content:space-between; gap:16px }
+  .brand h1{ margin:0; font-size: clamp(20px, 5vw, 28px) }
+  .cart{ display:flex; align-items:center; gap:12px; font-weight:700 }
+  .badge{ display:inline-block; min-width:26px; text-align:center; padding:4px 8px; border-radius:999px;
+          background: var(--primary); color:#00152a }
+  .filters{ display:grid; gap:14px; grid-template-columns: 1fr; margin-top:10px; padding:12px; border:1px solid var(--border); border-radius:14px; background:var(--panel); }
+  @media (min-width: 980px){ .filters{ grid-template-columns: 2fr 1fr 1fr 1fr 1fr; align-items:end } }
+  .filters label{ display:block; font-size:12px; color:var(--muted); margin-bottom:6px }
+  .filters input[type="text"], .filters select, .filters input[type="number"]{
+    width:100%; padding:10px 12px; border-radius:10px; border:1px solid var(--border); background:#0c1220; color:#eaf2ff
+  }
+  .chips{ display:flex; gap:8px; flex-wrap:wrap }
+  .chip{ padding:8px 10px; border-radius:999px; background:#10192e; border:1px solid var(--border); cursor:pointer; font-weight:700 }
+  .chip.active{ outline:2px solid var(--primary) }
+  .btn{ padding:10px 14px; border-radius:10px; border:1px solid var(--border); background:#0c1422; color:#cfe1ff; cursor:pointer; font-weight:700 }
+  .btn.primary{ background: linear-gradient(180deg, #2b7cff, #3db0ff); border-color:#2b7cff; color:#fff }
+  main{ max-width:1200px; margin: 12px auto 60px; padding: 0 18px }
+  .grid{ display:grid; gap:16px; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)) }
+  .card{ background: var(--card); border:1px solid var(--border); border-radius:14px; overflow:hidden; box-shadow: var(--shadow);
+    display:flex; flex-direction:column; transition: transform .15s ease }
+  .card:hover{ transform: translateY(-2px) }
+  .thumb{ width:100%; aspect-ratio: 16/9; background:#0b1222; display:flex; align-items:center; justify-content:center }
+  .body{ padding:12px 12px 14px }
+  .title{ margin:0 0 4px; font-size:18px; line-height:1.3 }
+  .meta{ font-size:12px; color:var(--muted); display:flex; gap:8px; flex-wrap:wrap }
+  .price{ margin-top:8px; font-weight:800; }
+  .stock{ font-size:12px; margin-left:6px }
+  .ok{ color:#7ef0bb } .low{ color:#ffdd85 } .oos{ color:#ffa1a1 }
+  .actions{ display:flex; gap:8px; margin-top:12px }
+  .actions .btn{ flex:1 }
+  footer{ text-align:center; color:#9fb1d4; margin: 28px 0 }
+
+  /* Inline SVG placeholder style */
+  .plate{
+    width:100%; height:100%; display:block;
+  }
+  .logoBox{
+    fill:#ffffff; opacity:.92;
+  }
+  .gradPS5{ stop-color:#9ccaff }
+  .gradXBX{ stop-color:#9cffbf }
+  .gradNSW{ stop-color:#ff9ca8 }
+  .gradSD{ stop-color:#9ce6ff }
+  .gradALLY{ stop-color:#d8b3ff }
+</style>
+</head>
+<body>
+  <header>
+    <div class="wrap">
+      <div class="brand">
+        <h1>Catálogo de Consolas</h1>
+        <div class="cart">🛒 Carrito <span id="cartCount" class="badge">0</span></div>
+      </div>
+      <div class="filters">
+        <div>
+          <label for="q">Buscar</label>
+          <input id="q" type="text" placeholder="Consola, marca, modelo..." oninput="applyFilters()">
+        </div>
+        <div>
+          <label>Marca</label>
+          <div class="chips" id="brands">
+            <span class="chip active" data-brand="all" onclick="toggleBrand(this)">Todas</span>
+            <span class="chip" data-brand="Sony" onclick="toggleBrand(this)">Sony</span>
+            <span class="chip" data-brand="Microsoft" onclick="toggleBrand(this)">Microsoft</span>
+            <span class="chip" data-brand="Nintendo" onclick="toggleBrand(this)">Nintendo</span>
+            <span class="chip" data-brand="Valve" onclick="toggleBrand(this)">Valve</span>
+            <span class="chip" data-brand="ASUS" onclick="toggleBrand(this)">ASUS</span>
+          </div>
+        </div>
+        <div>
+          <label for="type">Tipo</label>
+          <select id="type" onchange="applyFilters()">
+            <option value="all">Todos</option>
+            <option value="home">Sobremesa</option>
+            <option value="handheld">Portátil</option>
+            <option value="hybrid">Híbrida</option>
+          </select>
+        </div>
+        <div>
+          <label for="sort">Ordenar</label>
+          <select id="sort" onchange="applyFilters()">
+            <option value="featured">Destacados</option>
+            <option value="price-asc">Precio: menor a mayor</option>
+            <option value="price-desc">Precio: mayor a menor</option>
+            <option value="title-asc">Modelo: A-Z</option>
+          </select>
+        </div>
+        <div>
+          <label for="maxPrice">Precio máx. (USD)</label>
+          <input id="maxPrice" type="number" min="0" step="10" value="1000" oninput="applyFilters()">
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <div id="grid" class="grid"></div>
+  </main>
+
+  <footer>Imágenes ilustrativas generadas con SVG — reemplázalas por fotos reales si lo deseas.</footer>
+
+<script>
+const products = [
+  {id:1, model:"PlayStation 5", brand:"Sony", type:"home", storage:"1TB", price:499, stock:"ok", img:"ps5"},
+  {id:2, model:"Xbox Series X", brand:"Microsoft", type:"home", storage:"1TB", price:499, stock:"ok", img:"xbx"},
+  {id:3, model:"Nintendo Switch OLED", brand:"Nintendo", type:"hybrid", storage:"64GB", price:349, stock:"low", img:"nsw"},
+  {id:4, model:"Steam Deck OLED", brand:"Valve", type:"handheld", storage:"1TB", price:649, stock:"low", img:"sd"},
+  {id:5, model:"Xbox Series S", brand:"Microsoft", type:"home", storage:"512GB", price:299, stock:"ok", img:"xbs"},
+  {id:6, model:"ASUS ROG Ally", brand:"ASUS", type:"handheld", storage:"512GB", price:699, stock:"ok", img:"ally"},
+];
+
+let activeBrand = "all";
+let cartCount = 0;
+
+function toggleBrand(el){
+  document.querySelectorAll('#brands .chip').forEach(c => c.classList.remove('active'));
+  el.classList.add('active');
+  activeBrand = el.dataset.brand;
+  applyFilters();
+}
+
+function applyFilters(){
+  const q = document.getElementById('q').value.trim().toLowerCase();
+  const sort = document.getElementById('sort').value;
+  const selType = document.getElementById('type').value;
+  const maxPrice = parseFloat(document.getElementById('maxPrice').value || "1000");
+
+  let items = [...products].filter(p =>
+    (activeBrand === "all" || p.brand === activeBrand) &&
+    (selType === "all" || p.type === selType) &&
+    p.price <= maxPrice &&
+    (p.model.toLowerCase().includes(q) || p.brand.toLowerCase().includes(q) || p.type.toLowerCase().includes(q))
+  );
+
+  if(sort === "price-asc") items.sort((a,b)=>a.price-b.price);
+  if(sort === "price-desc") items.sort((a,b)=>b.price-a.price);
+  if(sort === "title-asc") items.sort((a,b)=>a.model.localeCompare(b.model));
+
+  render(items);
+}
+
+function svgPlaceholder(kind){
+  // Return an inline SVG string themed per console
+  const map = {
+    ps5: {g1:"#2b7cff", g2:"#9ccaff", label:"PS5", grad:"gradPS5"},
+    xbx: {g1:"#29ffa1", g2:"#9cffbf", label:"XSX", grad:"gradXBX"},
+    xbs: {g1:"#1fe087", g2:"#9cffbf", label:"XSS", grad:"gradXBX"},
+    nsw: {g1:"#ff5a7a", g2:"#ff9ca8", label:"SW OLED", grad:"gradNSW"},
+    sd:  {g1:"#2dfcff", g2:"#9ce6ff", label:"STEAM DECK", grad:"gradSD"},
+    ally:{g1:"#a24dff", g2:"#d8b3ff", label:"ROG ALLY", grad:"gradALLY"}
+  };
+  const m = map[kind] || {g1:"#3db0ff", g2:"#66e5a9", label:"CONSOLE", grad:"gradPS5"};
+  return `
+  <svg class="plate" viewBox="0 0 1200 675" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="${m.label}">
+    <defs>
+      <linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
+        <stop offset="0%" stop-color="${m.g1}"/>
+        <stop offset="100%" stop-color="${m.g2}"/>
+      </linearGradient>
+    </defs>
+    <rect width="1200" height="675" fill="#0b1222"/>
+    <rect x="40" y="40" width="1120" height="595" rx="28" fill="url(#g)" opacity="0.32"/>
+    <g opacity="0.2">
+      <circle cx="150" cy="200" r="120" fill="url(#g)"/>
+      <circle cx="1050" cy="500" r="140" fill="url(#g)"/>
+      <rect x="500" y="120" width="580" height="120" rx="22" fill="url(#g)"/>
+      <rect x="80" y="460" width="460" height="110" rx="22" fill="url(#g)"/>
+    </g>
+    <rect x="120" y="120" width="960" height="435" rx="22" fill="#0f1426" stroke="#1c2542"/>
+    <text x="50%" y="52%" text-anchor="middle" font-family="Inter, system-ui" font-size="84" fill="#eaf2ff">${m.label}</text>
+    <text x="50%" y="62%" text-anchor="middle" font-family="Inter, system-ui" font-size="28" fill="#c1cde6">Vista ilustrativa</text>
+  </svg>`;
+}
+
+function render(list){
+  const grid = document.getElementById('grid');
+  grid.innerHTML = "";
+  list.forEach(p => {
+    const card = document.createElement('div');
+    card.className = 'card';
+    const thumb = document.createElement('div');
+    thumb.className = 'thumb';
+    thumb.innerHTML = svgPlaceholder(p.img);
+    const body = document.createElement('div');
+    body.className = 'body';
+    body.innerHTML = `
+        <h3 class="title">${p.model}</h3>
+        <div class="meta">
+          <span>🏢 ${p.brand}</span>
+          <span>💾 ${p.storage}</span>
+          <span>🎮 ${p.type === "home" ? "Sobremesa" : p.type === "handheld" ? "Portátil" : "Híbrida"}</span>
+        </div>
+        <div class="price">$${p.price.toFixed(0)} <span class="stock ${p.stock}">(${p.stock === "ok" ? "en stock" : p.stock === "low" ? "pocas unidades" : "agotado"})</span></div>
+        <div class="actions">
+          <button class="btn" onclick='quickView(${JSON.stringify(JSON.stringify(p))})'>Vista rápida</button>
+          <button class="btn primary" ${p.stock==="oos"?"disabled":""} onclick="addToCart(${p.id})">Añadir</button>
+        </div>
+    `;
+    card.appendChild(thumb);
+    card.appendChild(body);
+    grid.appendChild(card);
+  });
+  if(list.length===0){
+    grid.innerHTML = "<p>No hay resultados. Ajusta filtros o busca otro término.</p>";
+  }
+}
+
+function quickView(pStr){
+  const p = JSON.parse(pStr);
+  const msg = `${p.model} — ${p.brand}
+Tipo: ${p.type}
+Almacenamiento: ${p.storage}
+Precio: $${p.price}`;
+  alert(msg);
+}
+
+function addToCart(id){
+  cartCount++;
+  document.getElementById('cartCount').textContent = cartCount;
+}
+
+applyFilters();
+</script>
+</body>
+</html>

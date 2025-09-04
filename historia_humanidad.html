@@ -1,0 +1,259 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Historia de la Humanidad - Animada</title>
+<style>
+    body {
+        margin: 0;
+        font-family: 'Segoe UI', sans-serif;
+        background: #0f0f0f;
+        color: #fff;
+        overflow-x: hidden;
+    }
+    header {
+        background: linear-gradient(45deg, #ff416c, #ff4b2b);
+        text-align: center;
+        padding: 60px 20px;
+        clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
+        animation: fadeInDown 1s ease;
+    }
+    header h1 {
+        font-size: 3em;
+        margin: 0;
+        letter-spacing: 2px;
+    }
+    header p {
+        font-size: 1.2em;
+        margin-top: 10px;
+    }
+    nav {
+        display: flex;
+        justify-content: center;
+        background: #ff4b2b;
+        gap: 15px;
+        padding: 15px;
+        animation: fadeIn 2s ease;
+    }
+    nav a {
+        color: white;
+        text-decoration: none;
+        font-weight: bold;
+        padding: 10px;
+        border: 2px solid white;
+        border-radius: 20px;
+        transition: 0.3s;
+    }
+    nav a:hover {
+        background: white;
+        color: #ff4b2b;
+        transform: scale(1.1);
+    }
+    section {
+        background: #1e1e1e;
+        margin: 30px auto;
+        padding: 30px;
+        width: 80%;
+        border-radius: 20px;
+        box-shadow: 0 0 15px #ff4b2b;
+        opacity: 0;
+        transform: translateY(50px);
+        transition: all 0.6s ease;
+    }
+    section.show {
+        opacity: 1;
+        transform: translateY(0);
+    }
+    h2 {
+        color: #ff4b2b;
+        font-size: 2em;
+        margin-bottom: 10px;
+    }
+    p, li {
+        font-size: 1.1em;
+        line-height: 1.6;
+    }
+    img {
+        width: 100%;
+        border-radius: 15px;
+        margin-top: 15px;
+        box-shadow: 0 0 10px #ff4b2b;
+        transition: transform 0.3s;
+    }
+    img:hover {
+        transform: scale(1.05);
+    }
+    .timeline {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 10px;
+        margin: 20px 0;
+    }
+    .timeline button {
+        background: transparent;
+        border: 2px solid #ff4b2b;
+        color: #ff4b2b;
+        padding: 10px 20px;
+        border-radius: 30px;
+        cursor: pointer;
+        font-weight: bold;
+        transition: 0.3s;
+    }
+    .timeline button:hover {
+        background: #ff4b2b;
+        color: white;
+        transform: scale(1.1);
+    }
+    #info {
+        text-align: center;
+        margin: 20px;
+        font-style: italic;
+        color: #f1f1f1;
+        transition: all 0.5s;
+    }
+    .download-btn {
+        display: block;
+        background: #ff416c;
+        color: white;
+        padding: 15px 20px;
+        text-align: center;
+        border-radius: 30px;
+        text-decoration: none;
+        margin: 30px auto;
+        width: 250px;
+        font-weight: bold;
+        box-shadow: 0 0 10px #ff416c;
+        transition: 0.3s;
+    }
+    .download-btn:hover {
+        background: white;
+        color: #ff416c;
+        transform: scale(1.05);
+    }
+    footer {
+        background: #0f0f0f;
+        color: white;
+        text-align: center;
+        padding: 20px;
+        border-top: 2px solid #ff4b2b;
+        margin-top: 30px;
+    }
+
+    @keyframes fadeInDown {
+        from { opacity: 0; transform: translateY(-50px); }
+        to { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes fadeIn {
+        from { opacity: 0; }
+        to { opacity: 1; }
+    }
+</style>
+</head>
+<body>
+
+<header>
+    <h1>Historia de la Humanidad</h1>
+    <p>Un viaje atrevido a través del tiempo</p>
+</header>
+
+<nav>
+    <a href="#prehistoria">Prehistoria</a>
+    <a href="#antiguedad">Antigüedad</a>
+    <a href="#edadmedia">Edad Media</a>
+    <a href="#edadmoderna">Edad Moderna</a>
+    <a href="#edadcont">Contemporánea</a>
+</nav>
+
+<section id="prehistoria">
+    <h2>Prehistoria</h2>
+    <p>Desde el origen del hombre hasta la invención de la escritura...</p>
+    <ul>
+        <li>Primeras herramientas y fuego</li>
+        <li>Arte rupestre y rituales</li>
+        <li>Nacimiento de la agricultura y aldeas</li>
+    </ul>
+    <img src="https://upload.wikimedia.org/wikipedia/commons/d/df/Cueva_Altamira_%2813%29.jpg" alt="Pinturas Rupestres">
+</section>
+
+<section id="antiguedad">
+    <h2>Edad Antigua</h2>
+    <p>Las grandes civilizaciones florecieron: Egipto, Mesopotamia, Grecia y Roma...</p>
+    <ul>
+        <li>Creación de imperios y leyes</li>
+        <li>Filosofía, arte y arquitectura clásica</li>
+        <li>Guerras y expansión cultural</li>
+    </ul>
+    <img src="https://upload.wikimedia.org/wikipedia/commons/e/e3/Colosseum_in_Rome%2C_Italy_-_April_2007.jpg" alt="Coliseo Romano">
+</section>
+
+<section id="edadmedia">
+    <h2>Edad Media</h2>
+    <p>Una era de castillos, cruzadas y renacimiento del conocimiento...</p>
+    <ul>
+        <li>Sistema feudal y religión</li>
+        <li>Arquitectura gótica y universidades</li>
+        <li>Comercio y expansión cultural</li>
+    </ul>
+    <img src="https://upload.wikimedia.org/wikipedia/commons/8/81/Notre-Dame_de_Paris_2013-07.JPG" alt="Notre-Dame">
+</section>
+
+<section id="edadmoderna">
+    <h2>Edad Moderna</h2>
+    <p>Exploración, ciencia, arte y el pensamiento moderno cambian al mundo...</p>
+    <ul>
+        <li>Descubrimientos y expansión colonial</li>
+        <li>Revoluciones científicas y artísticas</li>
+        <li>Reformas políticas y religiosas</li>
+    </ul>
+    <img src="https://upload.wikimedia.org/wikipedia/commons/e/e2/School_of_Athens_by_Raffaello.jpg" alt="Escuela de Atenas">
+</section>
+
+<section id="edadcont">
+    <h2>Edad Contemporánea</h2>
+    <p>De las revoluciones industriales al mundo digital globalizado...</p>
+    <ul>
+        <li>Avances tecnológicos acelerados</li>
+        <li>Guerras, tratados y derechos humanos</li>
+        <li>Era digital, globalización y nuevos desafíos</li>
+    </ul>
+    <img src="https://upload.wikimedia.org/wikipedia/commons/0/08/World_Wide_Web_logo.svg" alt="Internet">
+</section>
+
+<section>
+    <h2>Línea del Tiempo Interactiva</h2>
+    <div class="timeline">
+        <button onclick="showInfo('Prehistoria: Nacemos como especie y empezamos a crear.')">Prehistoria</button>
+        <button onclick="showInfo('Edad Antigua: Civilizaciones y pensamiento clásico.')">Edad Antigua</button>
+        <button onclick="showInfo('Edad Media: Fe, castillos y conocimiento oculto.')">Edad Media</button>
+        <button onclick="showInfo('Edad Moderna: Exploración, arte y ciencia moderna.')">Edad Moderna</button>
+        <button onclick="showInfo('Edad Contemporánea: Globalización y revolución digital.')">Edad Contemporánea</button>
+    </div>
+    <div id="info">Haz clic en una época para saber más.</div>
+</section>
+
+<a href="https://www.dropbox.com/scl/fi/kqkqox8o3npr8j2h86gu0/Resumen_Historia.pdf?rlkey=ry4eql9vdwrsp5mvj48b4s9q1&st=55ojyx2r&dl=0" target="_blank" class="download-btn">Descargar Resumen PDF</a>
+
+<footer>
+    &copy; 2025 Página realizada por Erick Rivera | Contacto: erickjw@gmail.com
+</footer>
+
+<script>
+    function showInfo(text) {
+        document.getElementById('info').innerText = text;
+    }
+    const sections = document.querySelectorAll('section');
+    window.addEventListener('scroll', () => {
+        sections.forEach(sec => {
+            const top = sec.getBoundingClientRect().top;
+            if (top < window.innerHeight - 100) {
+                sec.classList.add('show');
+            }
+        });
+    });
+</script>
+
+</body>
+</html>
